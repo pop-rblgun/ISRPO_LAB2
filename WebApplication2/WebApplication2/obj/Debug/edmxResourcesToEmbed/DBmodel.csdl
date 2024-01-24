@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Characters">
+    <Key>
+      <PropertyRef Name="ID_characters" />
+    </Key>
+    <Property Name="ID_characters" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Profiency" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Inventory" Relationship="Self.FK__Inventory__Chara__45F365D3" FromRole="Characters" ToRole="Inventory" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_id" Type="Int32" />
+    <Property Name="Character_id" Type="Int32" />
+    <NavigationProperty Name="Characters" Relationship="Self.FK__Inventory__Chara__45F365D3" FromRole="Inventory" ToRole="Characters" />
+    <NavigationProperty Name="Items" Relationship="Self.FK__Inventory__Item___44FF419A" FromRole="Inventory" ToRole="Items" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="ID_item" />
+    </Key>
+    <Property Name="ID_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Inventory" Relationship="Self.FK__Inventory__Item___44FF419A" FromRole="Items" ToRole="Inventory" />
+  </EntityType>
+  <Association Name="FK__Inventory__Chara__45F365D3">
+    <End Role="Characters" Type="Self.Characters" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Characters">
+        <PropertyRef Name="ID_characters" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="Character_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventory__Item___44FF419A">
+    <End Role="Items" Type="Self.Items" Multiplicity="0..1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="ID_item" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="Item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Characters" EntityType="Self.Characters" />
+    <EntitySet Name="Inventory" EntityType="Self.Inventory" />
+    <EntitySet Name="Items" EntityType="Self.Items" />
+    <AssociationSet Name="FK__Inventory__Chara__45F365D3" Association="Self.FK__Inventory__Chara__45F365D3">
+      <End Role="Characters" EntitySet="Characters" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventory__Item___44FF419A" Association="Self.FK__Inventory__Item___44FF419A">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="Inventory" EntitySet="Inventory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

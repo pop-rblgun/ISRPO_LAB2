@@ -1,0 +1,54 @@
+﻿<Window x:Name="Database" x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Database" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="52*"/>
+            <ColumnDefinition Width="69*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="item_btn" Content="Items" HorizontalAlignment="Left" Height="39" Margin="59,5,0,0" VerticalAlignment="Top" Width="110" BorderBrush="#FFBDBDBD" Click="itm_click" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFF0F0F0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="inventory_btn" Content="Inventory" HorizontalAlignment="Left" Height="39" Margin="174,6,0,0" VerticalAlignment="Top" Width="110" BorderBrush="#FFBDBDBD" Click="inv_click" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFF0F0F0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+        <DataGrid x:Name ="datagrid" HorizontalAlignment="Left" Height="356" Margin="10,44,0,0" VerticalAlignment="Top" Width="610" Background="AliceBlue" Foreground="Black" Grid.ColumnSpan="3" SelectionChanged="DataGrid_SelectionChanged"/>
+        <Button x:Name="characters_btn" Content="Characters" HorizontalAlignment="Left" Height="38" Margin="10,6,0,0" VerticalAlignment="Top" Width="110" BorderBrush="#FFBDBDBD" Click="character_click" Grid.ColumnSpan="2">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FFF0F0F0" Offset="0.983"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Addchar_btn" Content="Add" HorizontalAlignment="Left" Margin="250,44,0,0" VerticalAlignment="Top" Width="147" Height="21" Grid.Column="2" Click="addchr_Click"/>
+        <Button x:Name="Deletechar_btn" Content="Delete" HorizontalAlignment="Left" Margin="250,70,0,0" VerticalAlignment="Top" Width="114" Height="21" Grid.Column="2" Click="del_Click"/>
+        <Button x:Name="Additem_btn" Content="Add" HorizontalAlignment="Left" Margin="250,116,0,0" VerticalAlignment="Top" Width="147" Height="21" Grid.Column="2" Click="addit_Click"/>
+        <Button x:Name="Deleteitem_btn" Content="Delete" HorizontalAlignment="Left" Margin="250,142,0,0" VerticalAlignment="Top" Width="114" Height="21" Grid.Column="2" Click="del2_Click"/>
+        <Label Content="Characters" Grid.Column="2" HorizontalAlignment="Left" Margin="248,17,0,0" VerticalAlignment="Top"/>
+        <Label Content="Items" Grid.Column="2" HorizontalAlignment="Left" Margin="248,87,0,0" VerticalAlignment="Top"/>
+        <TextBox  x:Name="deletechartb" Grid.Column="2" HorizontalAlignment="Left" Height="21" Margin="369,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+        <TextBox  x:Name="deleteitemtb" Grid.Column="2" HorizontalAlignment="Left" Height="21" Margin="369,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" TextChanged="Deleteitemtb_TextChanged"/>
+
+    </Grid>
+</Window>

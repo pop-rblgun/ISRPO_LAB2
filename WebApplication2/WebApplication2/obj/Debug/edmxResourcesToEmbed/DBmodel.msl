@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="DBEntities">
+    <EntitySetMapping Name="Characters">
+      <EntityTypeMapping TypeName="DBModel.Characters">
+        <MappingFragment StoreEntitySet="Characters">
+          <ScalarProperty Name="ID_characters" ColumnName="ID_characters" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Profiency" ColumnName="Profiency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventory">
+      <EntityTypeMapping TypeName="DBModel.Inventory">
+        <MappingFragment StoreEntitySet="Inventory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Item_id" ColumnName="Item_id" />
+          <ScalarProperty Name="Character_id" ColumnName="Character_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="DBModel.Items">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="ID_item" ColumnName="ID_item" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
